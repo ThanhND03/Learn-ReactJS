@@ -1,24 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
-const App = () => {
-  const count = useSelector(state => state.counter.count);
-  const dispatch = useDispatch();
+import Comp1 from './components/Comp1';
+import Comp2 from './components/Comp2';
+import MyComponent from './components/MyComponent';
+const App = ({setName, setAge, setSdt}) => {
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>Count = {count}</div>
-        <button onClick={() => dispatch(increaseCounter())}>Increase</button>
-        <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
-      </header>
-    </div>
-  );
-}
+    return (
+        <div className="App">
+            {/* <MyComponent name="User" /> */}
+            <Comp1 setName={setName} setAge={setAge} setSdt={setSdt} />
+            <Comp2/>
+        </div>
+    );
+};
 
 export default App;
