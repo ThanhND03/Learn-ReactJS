@@ -1,35 +1,60 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const Comp2 = () => {
-
-    const [inputName, setInputName] = useState('')
-    const [inputAge, setInputAge] = useState('')
-    const [inputSdt, setInputSdt] = useState('')
+const Comp2 = ({onSubmit}) => {
+    const [inputName, setInputName] = useState('');
+    const [inputAge, setInputAge] = useState('');
+    const [inputSdt, setInputSdt] = useState('');
 
     const handleOnchangeName = (e) => {
-        let inputText = e.target.value
-        console.log(inputText)
-        setInputName(inputText)
-    }
+        let inputText = e.target.value;
+        setInputName(inputText);
+    };
+
     const handleOnchangeAge = (e) => {
-        let inputText = e.target.value
-        console.log(inputText)
-        setInputAge(inputText)
-    }
+        let inputText = e.target.value;
+        setInputAge(inputText);
+    };
+
     const handleOnchangeSdt = (e) => {
-        let inputText = e.target.value
-        console.log(inputText)
-        setInputSdt(inputText)
-    }
+        let inputText = e.target.value;
+        setInputSdt(inputText);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Cập nhật state `data` với dữ liệu mới
+        onSubmit({ name: inputName, age: inputAge, sdt: inputSdt });
+        // Reset các giá trị của input
+        setInputName('');
+        setInputAge('');
+        setInputSdt('');
+    };
 
     return (
-        <div>
-            <input type="text" placeholder="nhap name" value={inputName} onChange={handleOnchangeName} /> 
-            <button onClick={() => setInputName(inputName)}>submit</button>
-            <input type="text" placeholder="nhap age" value={inputAge} onChange={handleOnchangeAge} />
-            <input type="text" placeholder="nhap sdt" value={inputSdt} onChange={handleOnchangeSdt}/>
-        </div>
-    )
-}
+        <>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="Nhap ten"
+                    value={inputName} 
+                    onChange={handleOnchangeName}   
+                />
+                <input 
+                    type="number" 
+                    placeholder="Nhap tuoi" 
+                    value={inputAge} 
+                    onChange={handleOnchangeAge}
+                />
+                <input 
+                    type="number" 
+                    placeholder="Nhap sdt" 
+                    value={inputSdt} 
+                    onChange={handleOnchangeSdt}
+                />
+                <button type="submit">Them</button>
+            </form>
+        </>
+    );
+};
 
-export default Comp2
+export default Comp2;
