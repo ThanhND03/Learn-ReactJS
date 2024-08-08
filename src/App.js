@@ -37,21 +37,18 @@ const App = () => {
 
     // const [minAge, setMinAge] = useState(0)
 
-    const filterAge = (minAge) => {
-        return datas.filter(data => data.age >= minAge)
-    }
-
-    // const handleFilter = (newAge) => {
-    //     setMinAge(newAge)
+    // const filterAge = (minAge) => {
+    //     return datas.filter(data => data.age >= minAge)
     // }
-    const handleFilter = () => {
-        const filterUser = filterAge(21)
-        setDatas(filterUser)
-    }
+
+    // const handleFilter = () => {
+    //     const filterUser = filterAge(21)
+    //     setDatas(filterUser)
+    // }
     return (
         <div className="App">            
-            {/* <Test/> */}
-            <button onClick={handleFilter} >age</button>
+            <Test/>
+            {/* <button onClick={handleFilter} >age</button>
             <ul>
                 {datas.map((data, index)=>{
                     return (
@@ -60,7 +57,7 @@ const App = () => {
                         </div>
                     )
                 })}
-            </ul>
+            </ul> */}
         </div>
     );
 };
